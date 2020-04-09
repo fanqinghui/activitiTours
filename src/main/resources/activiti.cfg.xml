@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+
+    <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/demo?autoReconnect=true&amp;nullCatalogMeansCurrent=true" />
+    <property name="jdbcDriver" value="com.mysql.cj.jdbc.Driver" />
+    <property name="jdbcUsername" value="root" />
+    <property name="jdbcPassword" value="root" />
+    <!--用来声明数据库脚本更新策略，true代表，如果数据库中不存在响应表，会自动创建，false代表什么都不做，create——drop代表执行初始化脚本-->
+    <property name="databaseSchemaUpdate" value="true" />
+    <!--默认false，true代表引擎会不断刷新数据库的作业表，检查是否存在需要执行的作业-->
+    <property name="jobExecutorActivate" value="false" />
+    <property name="asyncExecutorEnabled" value="true" />
+    <property name="asyncExecutorActivate" value="false" />
+  </bean>
+
+</beans>
